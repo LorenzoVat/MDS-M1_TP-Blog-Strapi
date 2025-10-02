@@ -7,7 +7,7 @@
 
   onMount(async () => {
     try {
-      const API_URL = "http://localhost:1338/api/articles";
+      const API_URL = "http://localhost:1338/api/articles?populate=coverImage";
 
       const response = await fetch(API_URL);
       if (!response.ok) {
@@ -15,7 +15,6 @@
       }
 
       const data = await response.json();
-
       articles = data.data;
     } catch (err) {
       error = err.message;
@@ -43,6 +42,14 @@
 
     {#each articles as article}
       <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+        {#if article.coverImage}
+          <img
+            src={`http://localhost:1338${article.coverImage.url}`}
+            alt={article.title}
+            style="max-width: 300px; height: auto; margin-bottom: 10px;"
+          />
+        {/if}
+
         <h2>{article.title}</h2>
         <p><strong>ID:</strong> {article.id}</p>
         <p><strong>Slug:</strong> {article.slug}</p>

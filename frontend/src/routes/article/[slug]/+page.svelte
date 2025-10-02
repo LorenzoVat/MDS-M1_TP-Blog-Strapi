@@ -11,7 +11,7 @@
     try {
       const slug = $page.params.slug;
       const response = await fetch(
-        `http://localhost:1338/api/articles?filters[slug][$eq]=${slug}`
+        `http://localhost:1338/api/articles?filters[slug][$eq]=${slug}&populate=coverImage`
       );
 
       if (!response.ok) throw new Error("Article non trouvé");
@@ -73,6 +73,13 @@
     <p style="color: red;">Erreur: {error}</p>
   {:else if article}
     <h1>{article.title}</h1>
+    {#if article.coverImage}
+      <img 
+        src={`http://localhost:1338${article.coverImage.url}`}
+        alt={article.title}
+        style="max-width: 100%; height: auto; margin: 10px 0;"
+      />
+    {/if}
     <p>
       <strong>Publié le:</strong>
       {new Date(article.publishedAt).toLocaleDateString()}
