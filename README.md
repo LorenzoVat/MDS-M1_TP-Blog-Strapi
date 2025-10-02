@@ -50,7 +50,6 @@ Ce projet consiste à créer un blog collaboratif où :
 - Slug _(UID unique basé sur le titre)_
 - Contenu _(Rich Text)_
 - Image de couverture _(Media, image unique)_
-- Statut _(Enum : draft / published, avec Draft & Publish activé)_
 - Auteur _(Relation many-to-one avec User)_
 
 ### Content Type **Comment**
