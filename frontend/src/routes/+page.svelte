@@ -91,8 +91,8 @@
         {/each}
       </div>
     </section>
+    {/if}
     <Footer />
-  {/if}
 </main>
 
 <style>

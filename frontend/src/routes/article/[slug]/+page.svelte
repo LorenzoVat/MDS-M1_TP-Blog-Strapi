@@ -4,6 +4,7 @@
   import Header from "$lib/components/Header.svelte";
   import CommentList from "$lib/components/CommentList.svelte";
   import CommentForm from "$lib/components/CommentForm.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 
   let article = null;
   let comments = [];
@@ -143,11 +144,12 @@
           </a>
           <button
             class="action-button secondary"
-            on:click={() =>
-              window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: "smooth",
-              })}
+            on:click={() => {
+              const commentsSection = document.querySelector(".strapi-form");
+              if (commentsSection) {
+                commentsSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
           >
             <svg viewBox="0 0 24 24" width="16" height="16">
               <path
@@ -155,7 +157,7 @@
                 d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"
               />
             </svg>
-            Voir les commentaires
+            Laisser un commentaire
           </button>
         </div>
       </footer>
@@ -172,8 +174,8 @@
       <p>L'article que vous recherchez n'existe pas ou a été supprimé.</p>
       <a href="/" class="back-home">← Retour à l'accueil</a>
     </div>
-    <Footer />
   {/if}
+  <Footer />
 </main>
 
 <style>
