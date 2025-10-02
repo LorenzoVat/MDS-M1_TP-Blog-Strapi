@@ -109,11 +109,6 @@ Cette vérification est appliquée sur les routes **PUT** et **DELETE** des arti
   - Liste des commentaires associés
   - Formulaire d’ajout de commentaire (nom + contenu)
 
-- **(Bonus) Espace Auteur**
-  - Formulaire de connexion (authentification via JWT)
-  - Stockage du token côté client _(localStorage ou cookie)_
-  - Mini-dashboard listant les articles en brouillon
-
 ---
 
 ## ✅ Fonctionnalités
@@ -122,7 +117,6 @@ Cette vérification est appliquée sur les routes **PUT** et **DELETE** des arti
 - API REST basée sur **Strapi v5**
 - Interface **responsive** et adaptée aux mobiles
 - Permissions et rôles configurés
-- Authentification via **JWT**
 - UI claire et moderne
 
 ---
